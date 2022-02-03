@@ -57,6 +57,7 @@
 
   // .menu-top-header__link
   &__link {
+    @extend %underlinehover;
   }
   @media (max-width: $tablet) {
     display: none;
@@ -111,6 +112,11 @@
     line-height: math.div(22, 18);
     &::before {
       font-size: rem(28);
+    }
+    @media (any-hover: hover){
+      &:hover span{
+        text-decoration: underline;
+      }
     }
   }
   @media (max-width: $tablet) {
@@ -310,6 +316,11 @@
     &::before {
       font-size: rem(24.42);
     }
+    @media (any-hover: hover){
+      &:hover span{
+        text-decoration: underline;
+      }
+    }
   }
 
   // .actions-body-header__call
@@ -348,6 +359,7 @@
 
   // .request-call__number
   &__number {
+    @extend %underlinehover;
     font-weight: 600;
     line-height: math.div(22, 18);
     color: $mainColor;
@@ -388,6 +400,7 @@
 
   // .request-call__request-btn
   &__request-btn {
+    @extend %underlinehover;
     font-weight: 700;
     line-height: math.div(22, 18);
   }
@@ -431,6 +444,12 @@
   display: flex;
   align-items: center;
   column-gap: rem(20);
+
+  @media (any-hover: hover){
+    &:hover &__text {
+      text-decoration: underline;
+    }
+  }
 
   // .cart-header__icon
   &__icon {
@@ -604,6 +623,7 @@
 
   // .submenu-header__category
   &__category {
+    @extend %underlinehover;
     grid-row: 1;
     font-weight: 700;
   }
@@ -620,10 +640,12 @@
   // .submenu-header__link
 
   &__link {
+    @extend %underlinehover;
   }
 
   // .submenu-header__more
   &__more {
+    @extend %underlinehover;
     grid-row: 5;
     color: $mainOrange;
   }

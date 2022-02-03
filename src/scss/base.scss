@@ -125,3 +125,11 @@
 		display: none;
 	}
 }
+// Подчеркивание при наведении мыши
+%underlinehover {
+	@media (any-hover: hover){
+		&:hover{
+			text-decoration: underline;
+		}
+	}
+}
