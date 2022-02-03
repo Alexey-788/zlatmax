@@ -590,6 +590,7 @@
   left: 0;
   width: 100%;
   background: $mainColor;
+  z-index: 20;
 
   // .submenu-header__container
   &__container {

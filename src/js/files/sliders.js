@@ -7,7 +7,7 @@
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-import Swiper, { Navigation } from 'swiper';
+import Swiper, { Autoplay, Pagination } from 'swiper';
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -26,39 +26,39 @@ import "../../scss/base/swiper.scss";
 // Инициализация слайдеров
 function initSliders() {
 	// Перечень слайдеров
-	if (document.querySelector('.swiper')) {
-		new Swiper('.swiper', {
+	if (document.querySelector('.main-block__slider')) {
+		new Swiper('.main-block__slider', {
 			// Подключаем модули слайдера
 			// для конкретного случая
-			//modules: [Navigation, Pagination],
+			modules: [Autoplay, Pagination],
 			/*
 			effect: 'fade',
+			*/
 			autoplay: {
-				delay: 3000,
+				delay: 7000,
 				disableOnInteraction: false,
 			},
-			*/
 			observer: true,
 			observeParents: true,
 			slidesPerView: 1,
-			spaceBetween: 0,
+			spaceBetween: 30,
 			autoHeight: true,
 			speed: 800,
 			//touchRatio: 0,
 			//simulateTouch: false,
-			//loop: true,
+			loop: true,
 			//preloadImages: false,
 			//lazy: true,
 			// Dotts
-			//pagination: {
-			//	el: '.slider-quality__pagging',
-			//	clickable: true,
-			//},
-			// Arrows
-			navigation: {
-				nextEl: '.about__more .more__item_next',
-				prevEl: '.about__more .more__item_prev',
+			pagination: {
+				el: '.control-main-block__pagination',
+				clickable: true,
 			},
+			// Arrows
+			// navigation: {
+			// 	nextEl: '.about__more .more__item_next',
+			// 	prevEl: '.about__more .more__item_prev',
+			// },
 			/*
 			breakpoints: {
 				320: {
@@ -81,7 +81,15 @@ function initSliders() {
 			},
 			*/
 			on: {
-
+				init: (swiper) => {
+					const slidesAll = document.querySelector('.fraction-control__all');
+					const count = document.querySelectorAll('.main-block__slide:not(.swiper-slide-duplicate)').length;
+					slidesAll.innerHTML = count;
+				},
+				slideChange: (swiper) => {
+					const currentSlide = document.querySelector('.fraction-control__current');
+					currentSlide.innerHTML = `0${swiper.realIndex+1}`;
+				}
 			}
 		});
 	}
