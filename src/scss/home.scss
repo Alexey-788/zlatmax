@@ -15,6 +15,10 @@
     align-items: flex-start;
     column-gap: rem(30);
     margin-bottom: rem(45);
+
+    @media (max-width:$tablet){
+      display: block;
+    }
   }
 
   // .main-block__slider
@@ -22,6 +26,9 @@
     flex: 1 0 0;
     margin-left: rem(-30);
     padding-left: rem(30);
+    @media (max-width:$tablet){
+      margin-bottom: 20px;
+    }
   }
 
   // .main-block__swiper
@@ -52,7 +59,7 @@
   // .slide-main-block__title
   &__title {
     font-weight: 700;
-    font-size: rem(36);
+    @include adaptiveValue("font-size", 36, 23, 992, 320, 1);
     line-height: em(46, 36);
     letter-spacing: 0.03em;
     &:not(:last-child) {
@@ -62,7 +69,7 @@
 
   // .slide-main-block__subtitle
   &__subtitle {
-    font-size: rem(36);
+    @include adaptiveValue("font-size", 36, 18, 992, 320, 1);
     line-height: em(46, 36);
     letter-spacing: 0.03em;
     &:not(:last-child) {
@@ -72,7 +79,7 @@
 
   // .slide-main-block__text
   &__text {
-    font-size: rem(20);
+    @include adaptiveValue("font-size", 20, 16, 992, 320, 1);
     line-height: em(30, 20);
     letter-spacing: 0.03em;
     opacity: 0.7;
@@ -83,6 +90,10 @@
 
   // .slide-main-block__button
   &__button {
+    @media (max-width:$tablet){
+      width: 100%;
+      justify-content: center;
+    }
   }
 }
 .control-main-block {
@@ -251,19 +262,19 @@
   }
 }
 .advantages-main-block {
-  display: flex;
+  display: grid;
   justify-content: space-between;
-  gap: rem(20);
+  grid-template-columns: repeat(4, auto);
+  gap: rem(30);
   // .advantages-main-block__item
   &__item {
-    max-width: rem(300);
+    max-width: 300px;
     text-align: center;
   }
 
   // .advantages-main-block__icon
   &__icon {
     height: rem(90);
-    margin: 0 auto;
   }
 
   // .advantages-main-block__text
@@ -271,6 +282,14 @@
     font-weight: 600;
     font-size: rem(20);
     line-height: em(32, 20);
+  }
+
+  @media (max-width:$tablet){
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+  }
+  @media (max-width:$mobile){
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 //====================================================================================================
