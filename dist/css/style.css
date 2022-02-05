@@ -360,27 +360,29 @@ body.popup-show::after {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  column-gap: 1.875rem;
   min-height: 2.5rem;
   color: #ffffff;
+}
+.top-header__container > :not(:last-child) {
+  margin-right: 1.875rem;
 }
 .menu-top-header__list {
   display: flex;
   flex-wrap: wrap;
 }
 @media (min-width: 101.25em) {
-  .menu-top-header__list {
-    column-gap: 3.75rem;
+  .menu-top-header__list > li + li {
+    margin-right: 3.75rem;
   }
 }
 @media (min-width: 20em) and (max-width: 101.25em) {
-  .menu-top-header__list {
-    column-gap: clamp( 1.25rem , 0.6346153846rem  +  3.0769230769vw , 3.75rem );
+  .menu-top-header__list > li + li {
+    margin-right: clamp( 1.25rem , 0.6346153846rem  +  3.0769230769vw , 3.75rem );
   }
 }
 @media (max-width: 20em) {
-  .menu-top-header__list {
-    column-gap: 1.25rem;
+  .menu-top-header__list > li + li {
+    margin-right: 1.25rem;
   }
 }
 .menu-top-header__item_catalog {
@@ -916,7 +918,7 @@ body.popup-show::after {
     left: 0;
     width: 100%;
     height: 0.0625rem;
-    background: #C4C4C4;
+    background: #c4c4c4;
   }
 }
 @media (min-width: 61.99875em) {
@@ -986,7 +988,7 @@ body.popup-show::after {
 }
 @media (max-width: 61.99875em) {
   .main-block__slider {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
   }
 }
 @media (min-width: 101.25em) {
@@ -1206,7 +1208,7 @@ body.popup-show::after {
   height: 100%;
 }
 .media-main-block__tip {
-  position: relative;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1239,17 +1241,14 @@ body.popup-show::after {
   z-index: -1;
 }
 .media-main-block__tip_1 {
-  position: absolute;
   top: 10.8216432866%;
   right: 3.125%;
 }
 .media-main-block__tip_2 {
-  position: absolute;
   top: 36.6733466934%;
   left: 16.0714285714%;
 }
 .media-main-block__tip_3 {
-  position: absolute;
   right: 6.4732142857%;
   bottom: 22.8456913828%;
 }
@@ -1261,7 +1260,7 @@ body.popup-show::after {
   gap: 1.875rem;
 }
 .advantages-main-block__item {
-  max-width: 300px;
+  max-width: 18.75rem;
   text-align: center;
 }
 .advantages-main-block__icon {

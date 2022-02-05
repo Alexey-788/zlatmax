@@ -27,7 +27,7 @@
     margin-left: rem(-30);
     padding-left: rem(30);
     @media (max-width:$tablet){
-      margin-bottom: 20px;
+      margin-bottom: rem(20);
     }
   }
 
@@ -208,7 +208,7 @@
 
   // .media-main-block__tip
   &__tip {
-    position: relative;
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -243,19 +243,16 @@
     }
 
     &_1 {
-      position: absolute;
       top: percent(54, 499);
       right: percent(14, 448);
     }
 
     &_2 {
-      position: absolute;
       top: percent(183, 499);
       left: percent(72, 448);
     }
 
     &_3 {
-      position: absolute;
       right: percent(29, 448);
       bottom: percent(114, 499);
     }
@@ -268,7 +265,7 @@
   gap: rem(30);
   // .advantages-main-block__item
   &__item {
-    max-width: 300px;
+    max-width: rem(300);
     text-align: center;
   }
 
