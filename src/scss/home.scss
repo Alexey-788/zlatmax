@@ -122,6 +122,7 @@
         transition: left 7s linear;
         opacity: 0;
         background: $mainOrange;
+        box-shadow: 0 rem(2) rem(10) rgba(232, 170, 49, 0.66);
       }
       &::after {
         content: "";
@@ -290,3 +291,194 @@
   }
 }
 //====================================================================================================
+
+.carts-catalog {
+
+  // .carts-catalog__container
+  &__container {
+    display: grid;
+    gap: rem(30);
+
+    @media (min-width:$mobile){
+      grid-template-columns: repeat(auto-fit, minmax(rem(490), 1fr));
+    }
+  }
+
+  // .carts-catalog__item
+  &__item {
+  }
+}
+.item-carts-catalog {
+  position: relative;
+  padding: rem(30) rem(30) rem(65);
+  transition: box-shadow 0.3s ease 0s;
+  box-shadow: 0 rem(4) rem(20) rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  z-index: 1;
+
+  @media (any-hover: hover){
+    &:hover{
+      box-shadow: 0 rem(4) rem(25) rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  // .item-carts-catalog__body
+  &__body {
+  }
+
+  // .item-carts-catalog__title
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: rem(30);
+    }
+  }
+
+  // .item-carts-catalog__title-link
+  &__title-link {
+    position: relative;
+    display: inline-block;
+    font-weight: 600;
+    font-size: rem(24);
+    @include adaptiveValue("font-size", 24, 20);
+    line-height: em(34, 24);
+    padding-bottom: rem(15);
+
+    &::after{
+      content:'';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: rem(68);
+      height: rem(2);
+      transition: width 0.3s ease 0s;
+      background: $mainOrange;
+    }
+
+    @media (any-hover: hover){
+      &:hover{
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  // .item-carts-catalog__list
+  &__list {
+    display: inline-block;
+  }
+
+  // .item-carts-catalog__item
+  &__item {
+    display: flex;
+    align-items: center;
+    &:not(:last-child) {
+      margin-bottom: rem(10);
+    }
+
+    &::before{
+      content:'';
+      display: inline-block;
+      width: rem(6);
+      height: rem(6);
+      margin-right: rem(15);
+      border-radius: 50%;
+      background: $mainOrange;
+    }
+  }
+
+  // .item-carts-catalog__link
+  &__link {
+    line-height: em(34, 18);
+
+    @media (any-hover: hover){
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // .item-carts-catalog__image
+  &__image {
+    position: absolute;
+    z-index: -1;
+
+    &_1 {
+      right: rem(-26);
+      bottom: rem(32);
+      transform: rotate(-60.05deg);
+    }
+    &_2 {
+      right: rem(-21);
+      bottom: rem(-21);
+      transform: rotate(146.93deg);
+    }
+    &_3 {
+      right: rem(32);
+      bottom: rem(-104);
+      transform: rotate(47.99deg);
+    }
+    &_4 {
+      right: rem(-93);
+      bottom: rem(-41);
+    }
+    &_5 {
+      right: rem(-48);
+      bottom: rem(-48);
+      transform: rotate(-98.18deg);
+    }
+    &_6 {
+      right: rem(-95);
+      bottom: rem(-5);
+    }
+  }
+
+  @media (max-width:$mobileSmall){
+    padding-bottom: rem(110);
+
+    &__body {
+      text-align: center;
+    }
+
+    &__title-link {
+      padding-bottom: rem(10);
+      &::after{
+        right: 0;
+        margin: 0 auto;
+      }
+    }
+
+    &__image {
+      &_1 {
+        right: rem(-33);
+        bottom: rem(-18);
+        transform: rotate(-150deg);
+      }
+      &_2 {
+        right: rem(92);
+        bottom: rem(-66.4);
+        transform: rotate(135deg) scaleY(-1) scale(percent(206.04, 244.21));
+      }
+      &_3 {
+        right: rem(66);
+        bottom: rem(-177);
+        transform: rotate(180deg) scaleY(-1) scale(percent(230.44, 309.94));
+      }
+      &_4 {
+        right: rem(4);
+        bottom: rem(-120);
+        transform: scale(percent(143, 303));
+      }
+      &_5 {
+        right: rem(-72);
+        bottom: rem(-68);
+        transform: rotate(-150deg) scale(percent(242.28, 320.8));
+      }
+      &_6 {
+        right: rem(-140);
+        bottom: rem(-88);
+        transform: scale(percent(240.54, 415.22));
+      }
+    }
+  }
+}

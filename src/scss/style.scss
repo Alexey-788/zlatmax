@@ -145,4 +145,10 @@ body {
   // .page__main-block
   &__main-block {
   }
+
+  // .page__carts-catalog
+  &__carts-catalog {
+		@include adaptiveValue("padding-top", 100, 60);
+		@include adaptiveValue("padding-bottom", 70, 30);
+  }
 }
