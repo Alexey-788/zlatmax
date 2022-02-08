@@ -136,6 +136,8 @@ body {
 // Подключение стилей отдельных блоков
 @import "header";
 @import "footer";
+@import "cart-product";
+@import "product-carts";
 
 // Подключение стилей отдельных страниц
 @import "home";
@@ -150,5 +152,9 @@ body {
   &__carts-catalog {
 		@include adaptiveValue("padding-top", 100, 60);
 		@include adaptiveValue("padding-bottom", 70, 30);
+  }
+
+  // .page__product-carts
+  &__product-carts {
   }
 }

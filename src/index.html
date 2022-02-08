@@ -55,7 +55,7 @@
 								</div>
 							</div>
 							<div class="main-block__control control-main-block">
-								<div class="control-main-block__pagination"></div>
+								<div class="control-main-block__pagination dots"></div>
 								<div class="control-main-block__fraction fraction-control">
 									<span class="fraction-control__current">01</span>/<span class="fraction-control__all">0</span>
 								</div>
@@ -249,6 +249,10 @@
 					</div>
 				</div>
 			</section>
+			@@include('html/_product-carts.htm',{
+				"title": "Хиты продаж",
+				"more": "Перейти в каталог"
+			})
 		</main>
 		@@include('html/_footer.htm',{})
 	</div>

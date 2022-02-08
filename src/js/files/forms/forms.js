@@ -251,6 +251,7 @@ export function formQuantity() {
 }
 /* Модуь звездного рейтинга */
 export function formRating() {
+	const latterSpacing = 7.8;
 	const ratings = document.querySelectorAll('.rating');
 	if (ratings.length > 0) {
 		initRatings();
@@ -281,7 +282,7 @@ export function formRating() {
 		// Изменяем ширину активных звезд
 		function setRatingActiveWidth(index = ratingValue.innerHTML) {
 			const ratingActiveWidth = index / 0.05;
-			ratingActive.style.width = `${ratingActiveWidth}%`;
+			ratingActive.style.width = `calc(${ratingActiveWidth}% - ${latterSpacing/2}px)`;
 		}
 		// Возможность указать оценку 
 		function setRating(rating) {

@@ -93,6 +93,61 @@ function initSliders() {
 			}
 		});
 	}
+	if (document.querySelector('.product-carts__slider')) {
+		new Swiper('.product-carts__slider', {
+			// Подключаем модули слайдера
+			// для конкретного случая
+			modules: [Autoplay, Pagination],
+			/*
+			effect: 'fade',
+			*/
+			autoplay: {
+				delay: 700000,
+				disableOnInteraction: false,
+			},
+			observer: true,
+			observeParents: true,
+			slidesPerView: 4,
+			spaceBetween: 30,
+			autoHeight: true,
+			speed: 800,
+			//touchRatio: 0,
+			//simulateTouch: false,
+			// loop: true,
+			//preloadImages: false,
+			//lazy: true,
+			// Dotts
+			pagination: {
+				el: '.product-carts__pagination',
+				clickable: true,
+			},
+			// Arrows
+			// navigation: {
+			// 	nextEl: '.about__more .more__item_next',
+			// 	prevEl: '.about__more .more__item_prev',
+			// },
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 10,
+				},
+				660: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+				970: {
+					slidesPerView: 3,
+					spaceBetween: 20,
+				},
+				1360: {
+					slidesPerView: 4,
+					spaceBetween: 30,
+				},
+			},
+			on: {
+			}
+		});
+	}
 }
 // Скролл на базе слайдера (по классу swiper_scroll для оболочки слайдера)
 function initSlidersScroll() {

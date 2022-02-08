@@ -6185,7 +6185,26 @@
             ).innerHTML = `0${e.realIndex + 1}`;
           },
         },
-      });
+      }),
+      document.querySelector(".product-carts__slider") &&
+        new pn(".product-carts__slider", {
+          modules: [hn, fn],
+          autoplay: { delay: 7e5, disableOnInteraction: !1 },
+          observer: !0,
+          observeParents: !0,
+          slidesPerView: 4,
+          spaceBetween: 30,
+          autoHeight: !0,
+          speed: 800,
+          pagination: { el: ".product-carts__pagination", clickable: !0 },
+          breakpoints: {
+            320: { slidesPerView: 1, spaceBetween: 10 },
+            660: { slidesPerView: 2, spaceBetween: 20 },
+            970: { slidesPerView: 3, spaceBetween: 20 },
+            1360: { slidesPerView: 4, spaceBetween: 30 },
+          },
+          on: {},
+        });
   });
   let mn = !1;
   function gn(e) {
@@ -6433,5 +6452,54 @@
               r(e.itemsArray, e.matchMedia);
           });
       }
+    })(),
+    (function () {
+      const e = document.querySelectorAll(".rating");
+      e.length > 0 &&
+        (function () {
+          let t, n;
+          for (let t = 0; t < e.length; t++) {
+            i(e[t]);
+          }
+          function i(e) {
+            s(e), r(), e.classList.contains("rating_set") && o(e);
+          }
+          function s(e) {
+            (t = e.querySelector(".rating__active")),
+              (n = e.querySelector(".rating__value"));
+          }
+          function r(e = n.innerHTML) {
+            const i = e / 0.05;
+            t.style.width = `calc(${i}% - 3.9px)`;
+          }
+          function o(e) {
+            const t = e.querySelectorAll(".rating__item");
+            for (let i = 0; i < t.length; i++) {
+              const o = t[i];
+              o.addEventListener("mouseenter", function (t) {
+                s(e), r(o.value);
+              }),
+                o.addEventListener("mouseleave", function (e) {
+                  r();
+                }),
+                o.addEventListener("click", function (t) {
+                  s(e),
+                    e.dataset.ajax
+                      ? a(o.value, e)
+                      : ((n.innerHTML = i + 1), r());
+                });
+            }
+          }
+          async function a(e, t) {
+            if (!t.classList.contains("rating_sending")) {
+              t.classList.add("rating_sending");
+              let e = await fetch("rating.json", { method: "GET" });
+              if (e.ok) {
+                const i = (await e.json()).newRating;
+                (n.innerHTML = i), r(), t.classList.remove("rating_sending");
+              } else alert("Ошибка"), t.classList.remove("rating_sending");
+            }
+          }
+        })();
     })();
 })();
